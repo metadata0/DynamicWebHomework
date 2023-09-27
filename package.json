@@ -1,0 +1,22 @@
+{
+  "name": "dynamicweb",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/metadata0/DynamicWeb.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/metadata0/DynamicWeb/issues"
+  },
+  "homepage": "https://github.com/metadata0/DynamicWeb#readme",
+  "description": "",
+  "dependencies": {
+    "create-react-app": "^5.0.1"
+  }
+}
