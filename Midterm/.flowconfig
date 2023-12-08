@@ -1,0 +1,12 @@
+[ignore]
+<PROJECT_ROOT>/node_modules/.*
+{/* no need to check all those dependencies  */}
+[include]
+
+[libs]
+
+[lints]
+
+[options]
+
+[strict]

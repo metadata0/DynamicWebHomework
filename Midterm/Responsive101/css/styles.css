@@ -1,0 +1,111 @@
+/* Global Styles */
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    font-family: Helvetica, Arial, sans-serif;
+    /* if it doesnt load helvetical, load arial; if no arial, load sans-serif */
+}
+
+img {
+    width: 100%;
+    height: auto;
+}
+
+/* Desktop First Styling */
+
+header {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+
+    background-image: url('../img/grey_wash_wall.png');
+    padding: 0 2rem;
+    position: relative;
+    /* takes 4 parameters in clockwise direction, starting from top */
+}
+
+.brand {
+    margin: 0;
+    font-weight: 300;
+}
+
+header a {
+    color: #AAA;
+    text-decoration: none;
+}
+
+.menu {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: row;
+}
+
+.menu li {
+    min-width: 5rem;
+}
+
+.menu li a {
+    display: block;
+    padding: 1rem;
+    
+}
+
+.menu li a:hover {
+    color: #eee;
+    background-color: rgba(0,0,0,0.3);
+    
+}
+
+.container {
+    padding: 2rem;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    flex-wrap: wrap;
+}
+
+.thumb {
+    flex: 0 0 23;
+    /* don't grow, don't shrink,  */
+    /* flex-grow: 0;
+    flex-shrink: 0;
+    flex-basis: 23%; */
+}
+
+/* MEDIA QUERIES */
+
+/* tablet size */
+@media only screen and (min-width: 768px) and (max-width:1024px){
+    .thumb {
+        flex: 0 0 45%;
+    }
+}
+
+/* Smaller than ipad classic in portrait so we will assume mobile  */
+@media only screen and (max-width:767px){
+    header {
+        flex-direction: column;
+        justify-content: center;
+        align-items: stretch;
+        text-align: center;
+        padding: 0;
+    }
+    .menu {
+        flex-direction: column;
+        width: 100%;
+
+    }
+    .container {
+        flex-direction: column;
+    }
+    .thumb {
+        flex: 1 1 100%;
+        margin: 1rem auto;
+    }
+}

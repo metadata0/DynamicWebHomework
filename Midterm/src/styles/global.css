@@ -1,0 +1,62 @@
+/* @import url('https://fonts.googleapis.com/css?family=Open+Sans');
+@import url('https://fonts.googleapis.com/css2?family=Jua&display=swap');  */
+
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;1,100;1,200;1,300;1,400;1,500;1,600;1,700&display=swap');
+
+
+
+*{ box-sizing: border-box;}
+/* box sizing includes border and padding */
+
+
+
+body {
+  font-family: 'Poppins', sans-serif;
+  margin: 0;
+  font-size: 0.875rem;
+  line-height: 1.2;
+}
+
+/* prevent adjustments of font size after mobile orientation changes */
+
+html {
+  text-size-adjust: 100%;
+}
+
+.light {
+  --text-primary: var(--c-black);
+  --text-secondary: var(--c-grey-800);
+  --text-inactive: var(--c-grey-600);
+
+  /* background color*/
+  --background-primary: var(--c-grey-50);
+  --background-secondary: var(--c-grey-100);
+  --background-tertiary: var(--c-grey-200);
+
+  --overlay-primary: var(--c-overlay-light1);
+  --overlay-secondary: var(--c-overlay-light2);
+
+  /* border color */
+  --border-primary: var(--c-grey-600);
+  --border-secondary: var(--c-grey-400);
+  
+}
+
+.dark {
+  --text-primary: var(--c-white);
+  --text-secondary: var(--c-grey-400);
+  --text-inactive: var(--c-grey-600);
+
+  /* background color*/
+  --background-primary: var(--c-grey-900);
+  --background-secondary: var(--c-grey-700);
+  --background-tertiary: var(--c-grey-600);
+
+  --overlay-primary: var(--c-overlay-dark1);
+  --overlay-secondary: var(--c-overlay-dark2);
+
+  /* border color */
+  --border-primary: var(--c-grey-200);
+  --border-secondary: var(--c-grey-600);
+}
+

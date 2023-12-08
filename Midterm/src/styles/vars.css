@@ -1,0 +1,67 @@
+:root {
+    /* color */    
+    --c-grey-50: #efefef;
+    --c-grey-100: #e6e6e6;
+    --c-grey-200: #d1d1d1;
+    --c-grey-400: #acacac;
+    --c-grey-600: #5e5e5e;
+    --c-grey-700: #444444;
+    --c-grey-800: #353535;
+    --c-grey-900: #212121; 
+
+    --c-white: #f7f7f7;
+    --c-black: #1b1b1b;
+
+    --c-purple: rgb(163, 163, 245);
+
+    --c-overlay-dark1: rgba(247, 247, 247, 0.09);
+    --c-overlay-dark2: rgba(247, 247, 247, 0.18);
+
+    --c-overlay-light1: rgba(247, 247, 247, 0.09);
+    --c-overlay-light2: rgba(247, 247, 247, 0.18);
+
+    /* border color*/
+    --bc-1: var(--c-grey-3);
+
+    /* text color */
+    --tc-primary: var(--c-grey-4);
+
+    /* font weights */
+    --fw-bold: 700;
+    --fw-semibold: 500;
+    --fw-regular: 400;
+    --fw-light: 300;
+
+    /* font sizes */
+    --fs-h1: 3rem;
+    --fs-h2: 2.6rem;
+    --fs-h3: 1.8rem;
+    --fs-h4: 1rem;
+
+    --fs-b1: 1.2rem;
+    --fs-b2: 1rem;
+    --fs-b3: 0.875rem;
+
+    /* font-families */
+    --ff-open-sans: 'Open Sans', sans-serif;
+    --ff-poppins: 'Poppins', sans-serif;
+
+    /* padding sizes */
+    --ps-left: 10vw;
+    --ps-textOffset: 2rem;
+
+    /* line weight */
+    --lw-light: 1px;
+    --lw-regular: 1.5px;
+    --lw-semibold: 2px;
+    --lw-bold: 3px;
+
+    /* crosshair */
+
+    /* z indexes */
+    --z-foreground: 3;
+    --z-middleground: 2;
+    --z-cursor: 1;
+    --z-background: 0;
+    
+}
