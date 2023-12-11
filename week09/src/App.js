@@ -1,20 +1,12 @@
-// import logo from './logo.svg';
-
-import Accordion from './components/Accordion'
 import Link from './components/Link'
-
-function App() {
-
-  const handleClick = () => {
-    console.log('click')
-  }
-
+export default function App() {
   return (
     <div>
-      <Link to='/accordion'>Go to Button Page</Link>
-      
+      <div>
+        <Link to="/button">Go to Button Page</Link>
+        <Link to="/accordion">Go to Accordion Page</Link>
+      </div>
+      App Page Routes Coming SOON
     </div>
-  );
+  )
 }
-
-export default App;
