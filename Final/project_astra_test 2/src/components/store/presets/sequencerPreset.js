@@ -18,27 +18,27 @@ export const initialPresetObjects: TrackObjectType[] = [
     beatCount: 0,
     bpm: 120,
     stepCount: 16,
-    // isCounting: false,
+    isCounting: false,
   },
   {
     trackId: 2,
     beatCount: 0,
     bpm: 140,
     stepCount: 8,
-    // isCounting: false,
+    isCounting: false,
   },
   {
     trackId: 3,
     beatCount: 0,
     bpm: 100,
     stepCount: 12,
-    // isCounting: false,
+    isCounting: false,
   },
   {
     trackId: 4,
     beatCount: 0,
     bpm: 100,
     stepCount: 12,
-    // isCounting: false,
+    isCounting: false,
   }
 ];

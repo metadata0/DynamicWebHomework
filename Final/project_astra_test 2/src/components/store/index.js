@@ -1,5 +1,5 @@
 import {configureStore} from '@reduxjs/toolkit'
-import {incrementCount, setBPM, resetCount, sequencerReducer } from './slices/sequencerSlice.js'
+import {incrementCount, setBPM, onStart, onPause, onStop, resetCount, sequencerReducer } from './slices/sequencerSlice.js'
 
 const store = configureStore({
     reducer: {
@@ -11,4 +11,4 @@ const store = configureStore({
     }
 });
 
-export {store, incrementCount, setBPM, resetCount}
+export {store, incrementCount, setBPM, onStart, onPause, onStop, resetCount}

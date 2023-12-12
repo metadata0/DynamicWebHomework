@@ -4,7 +4,7 @@ import { useDispatch, useSelector, Provider } from 'react-redux';
 import Track from "./Track";
 import { initialPresetObjects, TrackObjectType } from '../../store/presets/sequencerPreset.js'
 import { store } from '../../store'
-import { incrementCount, setBPM, resetCount } from '../../store'
+import { incrementCount, setBPM, resetCount, onStart, onPause, onStop } from '../../store'
 
 
 
@@ -38,12 +38,24 @@ export default function Sequencer(props): React$Element<any, any> {
   //counting state managed locally
   const [isCounting, setIsCounting] = useState(false);
 
-  console.log(trackObjects[1].bpm)
+  const handleStart = () => {
+    trackObjects.map((item, index) => (
+      // console.log(item.isCounting)
+      dispatch(onStart(item.isCounting))
+    ))
+    // console.log(trackObjects[0].isCounting)
+  }
+
+  const handleStop = () => {
+    trackObjects.map((item, index) => (
+      onStop(item, timerIdRef[index])
+    ))
+  }
 
   return (
       <Provider store={store}>
           {/* https://stackoverflow.com/questions/3751520/how-to-generate-sequence-of-numbers-chars-in-javascript */}
-          {trackObjects.map((index) => (
+          {trackObjects.map((item, index) => (
               <Track id={index} 
               trackObject={trackObjects[index]}
               bpmRange={bpmRange}
@@ -53,10 +65,10 @@ export default function Sequencer(props): React$Element<any, any> {
           ))}
           {/* <Track id={1} stepCount={stepCount}></Track> */}
           
-          {/* <button onClick={onStart}>Start</button>
-          <button onClick={onPause}>Start</button>
-          <button onClick={onStop}>Stop</button>
-          <button onClick={resetAll}>Reset</button> */}
+          <button onClick={handleStart}>Play</button>
+          <button onClick={onPause}>Pause</button>
+          <button onClick={handleStop}>Stop</button>
+          {/* <button onClick={resetAll}>Reset</button> */}
       </Provider>
       
   )

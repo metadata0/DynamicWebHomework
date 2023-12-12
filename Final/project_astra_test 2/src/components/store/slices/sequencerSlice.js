@@ -22,21 +22,23 @@ const sequencerSlice = createSlice({
             }
         },
 
-        // onStart(state) {
-        //     state.isCounting = true;
-        // },
+        onStart(state) {
+            // console.log(state)
+            state.isCounting = true;
+        },
 
-        // onPause(state) {
-        //     state.isCounting = false;
-        // },
+        onPause(state) {
+            state.isCounting = false;
+        },
 
-        // onStop(state, action) {
-        //     state.isCounting = false;
-        //     clearTimeout(action.payload.current)
-        // },
+        onStop(state, action) {
+            state.isCounting = false;
+            clearTimeout(action.payload.current)
+        },
 
         setBPM(state, action) {
             state.BPM = action.payload;
+            console.log('action.payload')
         },
 
         resetCount(state, action) {
@@ -51,7 +53,7 @@ const sequencerSlice = createSlice({
 
 
 // export  { sequencerStore }
-export const { incrementCount, setBPM, resetCount } = sequencerSlice.actions;
+export const { incrementCount, setBPM, resetCount, onStart, onPause, onStop} = sequencerSlice.actions;
 export const sequencerReducer = sequencerSlice.reducer
 
 
