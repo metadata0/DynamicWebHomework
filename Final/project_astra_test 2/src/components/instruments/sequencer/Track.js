@@ -4,12 +4,11 @@ import { useDispatch } from 'react-redux';
 import { incrementCount, setBPM, resetCount } from '../../store'
 
 export default function Track(props): React$Element<any, any> {
-    const { id, bpmRange, isCounting, trackObject, timerIdRef } = props
+    const { id, bpmRange, isCounting, trackObject, timerIdRef } = props;
 
     const dispatch = useDispatch()
 
     //interval calculated, stored and managed locally
-    // console.log(trackObject)
     const [interval, setInterval] = useState(60000/trackObject.bpm);
 
     //Reference:
@@ -18,17 +17,20 @@ export default function Track(props): React$Element<any, any> {
 
     //check if it is counting
     useEffect(() => {
-        //if it plays
-        if(isCounting){
+        // console.log(interval)
+        // //if it plays
+        if(trackObject.isCounting){
             //start timer
-            timerIdRef[id].current = setTimeout(() => {
+            console.log(timerIdRef)
+            timerIdRef.current = setTimeout(() => {
                 //if the beatcount oversteps, reset 
-                dispatch(incrementCount(trackObject))
+                dispatch(incrementCount(trackObject, id))
             }, interval);
         }
     
         return () => {
-        clearTimeout(timerIdRef[id].current);
+            // console.log(id)
+        clearTimeout(timerIdRef.current);
         }
     }, [trackObject.beatCount, trackObject.isCounting])
 

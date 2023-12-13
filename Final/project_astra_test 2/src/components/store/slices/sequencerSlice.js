@@ -3,46 +3,70 @@ import { initialPresetObjects } from '../presets/sequencerPreset.js'
 
 //tutorial https://www.youtube.com/watch?v=oeLcLVQtS0M
 
-//reducer function
-
 const sequencerSlice = createSlice({
     name: 'sequencer',
     initialState: initialPresetObjects, 
     reducers: {
+// --------------------------------------------------------------------------
+        //bear in mind that initialPresetObjects is an array structured like:[
+            // item{
+            //     key: ...
+            //     key: ...
+            // },
+            // item {
+            //     key: ...
+            //     key: ...
+            // }
+        // ]
+
+        //need to remember to unpack this array within the slice reducers.
+// --------------------------------------------------------------------------
+
         //increment with built-in overstep handler
-        incrementCount(state) {
-      
-            const newCount = state.beatCount + 1;
-            const overStep = newCount > state.stepCount;
-            // return { ...state, beatCount: overStep ? 1 : newCount }
-            if (overStep){
-                state.beatCount = 1
-            } else {
-                state.beatCount = newCount
-            }
+        //passing in the track index as action.payload
+        incrementCount(state, action) {
+            const i = action.payload
+
+            state.map((item, index) => (
+                (index === i && item.beatCount >= item.stepCount) ? 
+                item.beatCount = 1 :
+                item.beatCount = item.beatCount + 1
+            ))
+            // const newCount = state[index].beatCount + 1;
+            // const overStep = newCount > state[index].stepCount;
+            // // return { ...state, beatCount: overStep ? 1 : newCount }
+            // if (overStep){
+            //     state[index].beatCount = 1
+            // } else {
+            //     state[index].beatCount = newCount
+            // }
         },
 
-        onStart(state) {
-            // console.log(state)
-            state.isCounting = true;
-        },
-
-        onPause(state) {
-            state.isCounting = false;
-        },
-
-        onStop(state, action) {
-            state.isCounting = false;
-            clearTimeout(action.payload.current)
-        },
-
+        //set the bpm of a specific track item
         setBPM(state, action) {
-            state.BPM = action.payload;
+            state.bpm = action.payload;
             console.log('action.payload')
         },
 
-        resetCount(state, action) {
-            state.beatCount = 1;
+        //start all tracks in the reducer state
+        onStart(state) {
+            state.map((item, index) => (
+                item.isCounting = true
+            ))
+            // console.log(state)
+        },
+
+        //stop all tracks in the reducer state
+        onStop(state) {
+            state.map((item, index) => (
+                item.isCounting = false
+            ))
+        },
+
+        onReset(state) {
+            state.map((item, index) => (
+                item.beatCount = 1
+            ))
         }
     }
 });
@@ -53,7 +77,7 @@ const sequencerSlice = createSlice({
 
 
 // export  { sequencerStore }
-export const { incrementCount, setBPM, resetCount, onStart, onPause, onStop} = sequencerSlice.actions;
+export const { incrementCount, setBPM, onStart, onStop, onReset } = sequencerSlice.actions;
 export const sequencerReducer = sequencerSlice.reducer
 
 
